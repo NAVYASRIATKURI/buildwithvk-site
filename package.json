@@ -1,0 +1,30 @@
+{
+  "name": "vk-engineers-construction-site",
+  "version": "1.0.0",
+  "description": "VK Engineers - Construction Company Website",
+  "main": "server.js",
+  "scripts": {
+    "build": "eleventy",
+    "build:watch": "eleventy --watch",
+    "serve": "eleventy --serve",
+    "serve:public": "http-server public -p 8189 -o",
+    "start": "npm run build && npm run serve:public",
+    "dev": "eleventy --serve --port=8189",
+    "clean": "rm -rf public"
+  },
+  "keywords": [
+    "construction",
+    "website",
+    "static-site"
+  ],
+  "author": "VK Engineers",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "http-server": "^14.1.1",
+    "nodemon": "^3.0.1"
+  }
+}
