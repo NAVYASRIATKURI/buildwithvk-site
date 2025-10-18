@@ -84,4 +84,30 @@ title: Contact Us - VK Engineers
             </div>
             <!-- Contact End -->
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // Stop normal form submission
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      // ✅ Replace this with your company's WhatsApp number (use international format, no '+' or spaces)
+      const phoneNumber = "918317668055"; 
+
+      // Build the WhatsApp message
+      const whatsappMessage = `Hello, I am ${name}.%0AEmail: ${email}%0ASubject: ${subject}%0AMessage: ${message}`;
+
+      // Redirect to WhatsApp chat
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+      window.open(whatsappURL, "_blank");
+    });
+  });
+</script>
+
+
 

@@ -1,0 +1,129 @@
+---
+layout: base.njk
+title: Get a Quote - VK Engineers
+---
+
+<!-- Page Header Start -->
+<div class="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2>Request a Quote</h2>
+      </div>
+      <div class="col-12">
+        <a href="/">Home</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Get a Quote Section Start -->
+<section class="quote-section py-5">
+  <div class="container">
+    <div class="section-header text-center mb-4">
+      <p>Request a Free Quote</p>
+      <h2>Get a Quote for Your Project</h2>
+      <p class="text-muted">
+        Please fill out the form below to help us understand your requirements. Our team will get back to you soon.
+      </p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <form id="quoteForm" class="p-4 border rounded bg-light shadow-sm">
+          <!-- Name -->
+          <div class="form-group mb-3">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group mb-3">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group mb-3">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number" required>
+          </div>
+
+          <!-- Service Selection -->
+          <div class="form-group mb-3">
+            <label for="service">Select Service</label>
+            <select id="service" class="form-control" required>
+              <option value="">-- Select a Service --</option>
+              <option>House 2D Plans</option>
+              <option>3D Plans</option>
+              <option>Layout Plans</option>
+              <option>Building Elevations</option>
+              <option>Structural Designs</option>
+              <option>Estimations</option>
+              <option>Civil Contract Works</option>
+              <option>Valuations</option>
+              <option>All Civil Works</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <!-- Other Service -->
+          <div class="form-group mb-3" id="otherServiceDiv" style="display: none;">
+            <label for="otherService">Please specify</label>
+            <input type="text" id="otherService" class="form-control" placeholder="Mention your service request">
+          </div>
+
+          <!-- Project Description -->
+          <div class="form-group mb-3">
+            <label for="description">Project Description</label>
+            <textarea id="description" rows="4" class="form-control" placeholder="Briefly describe your project or requirements" required></textarea>
+          </div>
+
+          <!-- Submit -->
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary px-5 py-2">Request Quote</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Get a Quote Section End -->
+
+<!-- WhatsApp Form Script -->
+<script>
+  // Show "Other" input when selected
+  document.getElementById("service").addEventListener("change", function() {
+    const otherDiv = document.getElementById("otherServiceDiv");
+    otherDiv.style.display = this.value === "Other" ? "block" : "none";
+  });
+
+  // Send form data to WhatsApp
+  document.getElementById("quoteForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const service = document.getElementById("service").value;
+    const otherService = document.getElementById("otherService").value;
+    const description = document.getElementById("description").value;
+
+    const selectedService = service === "Other" ? otherService : service;
+
+    const message = `Hello! 👷‍♂️ I would like to get a quote for the following:\n
+Name: ${name}\n
+Email: ${email}\n
+Phone: ${phone}\n
+Service: ${selectedService}\n
+Project Details: ${description}\n
+Thank you!`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappNumber = "918888888888"; // Replace with your actual WhatsApp number
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappURL, "_blank");
+  });
+</script>

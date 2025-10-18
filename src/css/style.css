@@ -376,6 +376,24 @@ a:focus {
     animation-duration: 1.5s;
 }
 
+/*whatsap*/
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25d366;
+  color: white;
+  font-size: 28px;
+  padding: 14px;
+  border-radius: 50%;
+  z-index: 999;
+  transition: transform 0.3s;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  color: white;
+}
+
 
 /*******************************/
 /******* Page Header CSS *******/
